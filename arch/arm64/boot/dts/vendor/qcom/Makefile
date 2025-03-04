@@ -1,3 +1,16 @@
+ifeq ($(CONFIG_SEC_GTA9P_PROJECT),y)
+ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+dtbo-$(CONFIG_ARCH_BLAIR) += blair-sec-gta9p-overlay.dtbo
+blair-sec-gta9p-overlay.dtbo-base := blair.dtb
+endif
+
+else ifeq ($(CONFIG_SEC_GTA9PWIFI_PROJECT),y)
+ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
+dtbo-$(CONFIG_ARCH_BLAIR) += blair-sec-gta9pwifi-overlay.dtbo
+blair-sec-gta9pwifi-overlay.dtbo-base := blair.dtb
+endif
+
+else
 ifneq ($(CONFIG_ARCH_QTI_VM), y)
 ifeq ($(CONFIG_BUILD_ARM64_DT_OVERLAY),y)
 dtbo-$(CONFIG_ARCH_LAHAINA) += lahaina-rumi-overlay.dtbo \
@@ -561,6 +574,7 @@ dtb-$(CONFIG_ARCH_DIREWOLF) += direwolf-ivi-rumi.dtb \
 	direwolf-ivi-adp-star.dtb \
 	direwolf-adas-rumi.dtb \
 	direwolf-adas-adp-star.dtb
+endif
 endif
 
 always		:= $(dtb-y)
