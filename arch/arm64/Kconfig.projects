@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: GPL-2.0-only
+menu "Project selection"
+
+config SEC_GTA9P_PROJECT
+	bool "Samsung GTA9P Project"
+	help
+	  Support for Samsung GTA9P Project
+
+config SEC_GTA9PWIFI_PROJECT
+	bool "Samsung GTA9PWIFI Project"
+	help
+	  Support for Samsung GTA9PWIFI Project
+
+endmenu
